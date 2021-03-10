@@ -1,0 +1,14 @@
+BTCUSD - COINBASE
+
+BTCUSD - BITFINEX
+
+BFX - CB Spread:
+study("BFX -CB Spread", overlay=true)
+
+spread=security("BITFINEX:BTCUSD", timeframe.period, ohlc4)-security("COINBASE:BTCUSD", timeframe.period, ohlc4)
+
+spread_p=spread/security("BITFINEX:BTCUSD", timeframe.period, ohlc4)
+
+ma=sma(spread,1)
+plot(ma,title='Entry Price', linewidth=2)
+hline(0,linewidth=2)
